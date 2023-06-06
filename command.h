@@ -35,7 +35,7 @@ void tokenize(char* str, int& argc, char **argv) {
         argv[argc++] = s;
 	}
 	
-	#if 1
+	#if DBG
 	printf("Tokens (%i):\n", argc);
 	for (int i=0;i<argc;++i) {
 	    printf("  \"%s\"\n", argv[i]);
