@@ -42,8 +42,3 @@ void tokenize(char* str, int& argc, char **argv) {
 	}
 	#endif
 }
-
-void parsecmd(char* cmdbuf, int& argc, char **argv) {    
-	readline(cmdbuf, CMD_BUF_SZ);
-	tokenize(cmdbuf, argc, argv);
-}

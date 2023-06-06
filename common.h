@@ -15,16 +15,14 @@
 #define DBG 0
 
 #if DBG
-#define INTL_DBGPRINT(color, level)           printf("\x1b[" #color "m[" #level "]: %s:%i    %s\x1b[39m\n", __FILE__, __LINE__, __PRETTY_FUNCTION__  );
-#define INTL_DBGPRINTNOTE(color, level, note) printf("\x1b[" #color "m[" #level "]: %s:%i    %s: %s\x1b[39m\n", __FILE__, __LINE__, __PRETTY_FUNCTION__, note);
-#define DBGLOG(note) INTL_DBGPRINTNOTE(32,LOG,note);
-#define DBGWARN(note) INTL_DBGPRINTNOTE(33,WARN,note);
-#define DBGERROR(note) INTL_DBGPRINTNOTE(31,ERROR,note);
-#define DBGTRACE() INTL_DBGPRINT(36,TRACE);
+#define DBGLOG(fmt, ...)   do { printf("\x1b[32m  [LOG] %s:%i %s    " fmt "\x1b[39m\n", __FILE__, __LINE__, __PRETTY_FUNCTION__, ##__VA_ARGS__); } while(0);
+#define DBGWARN(fmt, ...)  do { printf("\x1b[33m [WARN] %s:%i %s    " fmt "\x1b[39m\n", __FILE__, __LINE__, __PRETTY_FUNCTION__, ##__VA_ARGS__); } while(0);
+#define DBGERROR(fmt, ...) do { printf("\x1b[31m[ERROR] %s:%i %s    " fmt "\x1b[39m\n", __FILE__, __LINE__, __PRETTY_FUNCTION__, ##__VA_ARGS__); } while(0);
+#define DBGTRACE()         do { printf("\x1b[36m[TRACE] %s:%i %s\x1b[39m\n",            __FILE__, __LINE__, __PRETTY_FUNCTION__);                } while(0);
 #else
-#define DBGLOG(note)
-#define DBGWARN(note)
-#define DBGERROR(note)
+#define DBGLOG(fmt, ...)
+#define DBGWARN(fmt, ...)
+#define DBGERROR(fmt, ...)
 #define DBGTRACE()
 #endif
 
