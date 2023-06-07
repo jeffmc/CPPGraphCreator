@@ -1,5 +1,66 @@
+vertex astoria
+vertex seaside
+vertex cannon
+vertex manzanita
+vertex hillsboro
+vertex mcminnville
 vertex portland
 vertex salem
+vertex mthood
+vertex tillamook
 vertex eugene
 vertex beaverton
+vertex corvallis
+vertex bend
+vertex sunriver
+vertex roseburg
+vertex medford
+vertex klamathfalls
+vertex ashland
+vertex coosbay
+vertex florence
+vertex sisters
+vertex craterlake
+vertex california
+vertex washington
+vertex nevada
+vertex idaho
+vertex montana
+
+edge 5 washington astoria
+edge 14 astoria seaside
+edge 8 seaside cannon
+edge 11 cannon manzanita
+edge 46 manzanita hillsboro
+edge 63 manzanita portland
+edge 23 hillsboro mcminnville
+edge 19 mcminnville salem
+edge 48 portland salem
+edge 47 portland mthood
+edge 7 portland beaverton
+edge 45 beaverton salem
+edge 85 salem sisters
+edge 21 sisters bend
+edge 18 manzanita tillamook
+edge 28 salem corvallis
+edge 37 corvallis eugene
+edge 84 salem florence
+edge 89 mthood bend
+edge 13 bend sunriver
+edge 71 sunriver craterlake
+edge 58 eugene roseburg
+edge 44 florence coosbay
+edge 56 craterlake klamathfalls
+edge 61 craterlake medford
+edge 68 roseburg medford
+edge 58 medford klamathfalls
+edge 21 medford ashland
+edge 74 eugene coosbay
+edge 49 klamathfalls ashland
+edge 21 ashland california
+edge 99 california nevada
+edge 99 nevada idaho
+edge 99 idaho montana
+edge 99 montana washington
+
 matrix

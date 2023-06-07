@@ -6,19 +6,19 @@
 #include <stdio.h>
 
 // FORMATTED PRODUCTION CONSOLE OUTPUT
-#define PRDERROR(fmt, ...) do { printf ("\x1b[31m" fmt "\x1b[39m\n", ##__VA_ARGS__); } while(0);
-#define PRDSUCCESS(fmt, ...) do { printf("\x1b[32m" fmt "\x1b[39m\n", ##__VA_ARGS__); } while(0);
-#define PRDWARN(fmt, ...) do { printf("\x1b[33m" fmt "\x1b[39m\n", ##__VA_ARGS__); } while(0);
-#define PRDINFO(fmt, ...) do { printf("\x1b[36m" fmt "\x1b[39m\n", ##__VA_ARGS__); } while(0);
+#define PRDERROR(fmt, ...)   do { printf("\x1b[0;31m" fmt "\x1b[0m\n", ##__VA_ARGS__); } while(0);
+#define PRDSUCCESS(fmt, ...) do { printf("\x1b[0;32m" fmt "\x1b[0m\n", ##__VA_ARGS__); } while(0);
+#define PRDWARN(fmt, ...)    do { printf("\x1b[0;33m" fmt "\x1b[0m\n", ##__VA_ARGS__); } while(0);
+#define PRDINFO(fmt, ...)    do { printf("\x1b[0;36m" fmt "\x1b[0m\n", ##__VA_ARGS__); } while(0);
 
 // FORMATTED DEBUG-ONLY OUTPUT
 #define DBG 0
 
 #if DBG
-#define DBGLOG(fmt, ...)   do { printf("\x1b[32m  [LOG] %s:%i %s    " fmt "\x1b[39m\n", __FILE__, __LINE__, __PRETTY_FUNCTION__, ##__VA_ARGS__); } while(0);
-#define DBGWARN(fmt, ...)  do { printf("\x1b[33m [WARN] %s:%i %s    " fmt "\x1b[39m\n", __FILE__, __LINE__, __PRETTY_FUNCTION__, ##__VA_ARGS__); } while(0);
-#define DBGERROR(fmt, ...) do { printf("\x1b[31m[ERROR] %s:%i %s    " fmt "\x1b[39m\n", __FILE__, __LINE__, __PRETTY_FUNCTION__, ##__VA_ARGS__); } while(0);
-#define DBGTRACE()         do { printf("\x1b[36m[TRACE] %s:%i %s\x1b[39m\n",            __FILE__, __LINE__, __PRETTY_FUNCTION__);                } while(0);
+#define DBGLOG(fmt, ...)   do { printf("\x1b[0;32m  [LOG] %s:%i %s    " fmt "\x1b[0m\n", __FILE__, __LINE__, __PRETTY_FUNCTION__, ##__VA_ARGS__); } while(0);
+#define DBGWARN(fmt, ...)  do { printf("\x1b[0;33m [WARN] %s:%i %s    " fmt "\x1b[0m\n", __FILE__, __LINE__, __PRETTY_FUNCTION__, ##__VA_ARGS__); } while(0);
+#define DBGERROR(fmt, ...) do { printf("\x1b[0;31m[ERROR] %s:%i %s    " fmt "\x1b[0m\n", __FILE__, __LINE__, __PRETTY_FUNCTION__, ##__VA_ARGS__); } while(0);
+#define DBGTRACE()         do { printf("\x1b[0;36m[TRACE] %s:%i %s\x1b[0m\n",            __FILE__, __LINE__, __PRETTY_FUNCTION__);                } while(0);
 #else
 #define DBGLOG(fmt, ...)
 #define DBGWARN(fmt, ...)

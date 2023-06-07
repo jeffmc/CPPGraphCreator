@@ -17,10 +17,10 @@ struct Edge { // Edge is directed from a -> b
     int w;
 };
 
-#define VERTEX_POOL_MAX 128
+#define VERTEX_POOL_MAX 32
 Vertex vertex_pool[VERTEX_POOL_MAX];
 
-#define EDGE_POOL_MAX 1024
+#define EDGE_POOL_MAX 992
 Edge edge_pool[EDGE_POOL_MAX];
 
 void graph_free_all();
@@ -178,6 +178,7 @@ Edge* find_edge_by_vertices(const Vertex* from, const Vertex* to) {
         if (!e->free) {
             if (e->a == from && e->b == to) return e;
         }
+        ++e;
     }
     return nullptr;
 }
@@ -185,9 +186,9 @@ Edge* find_edge_by_vertices(const Vertex* from, const Vertex* to) {
 Edge* find_edge_by_labels(const char* from_label, const char* to_label) {
     DBGTRACE();
     Vertex *a = find_vertex_by_label(from_label);
-    if (!a) return nullptr;
+    if (a == nullptr) return nullptr;
     Vertex *b = find_vertex_by_label(to_label);
-    if (!b) return nullptr;
+    if (b == nullptr) return nullptr;
     
     return find_edge_by_vertices(a,b);
 }
